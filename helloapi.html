@@ -3,23 +3,19 @@
 <head>
   <title>Hello API</title>
   <script>
-    function generateHello() {
-      const phrases = [
-        "Hello!",
-        "Hi there!",
-        "Greetings!",
-        "Hey!",
-        "Salutations!"
-      ];
-
-      const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-      document.getElementById("helloOutput").textContent = randomPhrase;
+    function fetchHellos() {
+      fetch('https://raw.githubusercontent.com/Sircatspin/hello.api/main/hellos.txt')
+        .then(response => response.text())
+        .then(data => {
+          const hellos = data.split('\n');
+          const randomHello = hellos[Math.floor(Math.random() * hellos.length)];
+          document.getElementById("helloOutput").textContent = randomHello;
+        });
     }
   </script>
 </head>
-<body>
+<body onload="fetchHellos()">
   <h1>Hello API</h1>
-  <button onclick="generateHello()">Generate Hello</button>
   <p id="helloOutput"></p>
 </body>
 </html>

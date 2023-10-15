@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello API</title>
+  <script>
+    function generateHello() {
+      const phrases = [
+        "Hello!",
+        "Hi there!",
+        "Greetings!",
+        "Hey!",
+        "Salutations!"
+      ];
+
+      const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+      document.getElementById("helloOutput").textContent = randomPhrase;
+    }
+  </script>
+</head>
+<body>
+  <h1>Hello API</h1>
+  <button onclick="generateHello()">Generate Hello</button>
+  <p id="helloOutput"></p>
+</body>
+</html>
